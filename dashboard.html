@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club Activity Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">CampusClubs</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="events.html">Events</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="dashboard-container">
+    <h2>Club Activity Overview</h2>
+
+    <div class="dashboard-cards">
+      <div class="card">
+        <h3>Total Events</h3>
+        <p>68</p>
+      </div>
+      <div class="card">
+        <h3>Active Clubs</h3>
+        <p>12</p>
+      </div>
+      <div class="card">
+        <h3>Upcoming Events</h3>
+        <p>13</p>
+      </div>
+      <div class="card">
+        <h3>Registerations Done</h3>
+        <p>2,485</p>
+      </div>
+    </div>
+
+    <div class="charts">
+      <div class="chart-card">
+        <h4>Monthly Event Conducted</h4>
+        <canvas id="eventChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h4>Student Participation</h4>
+        <canvas id="engagementChart"></canvas>
+      </div>
+    </div>
+
+    <div class="recent-events">
+      <h4>Recent Activities</h4>
+      <ul>
+        <li>Music Club hosted “Open Mic Night” – Jul 10</li>
+        <li>Tech Club conducted Robotics Workshop – Jul 6</li>
+        <li>Drama Club presented “Echo” Play – Jun 30</li>
+        <li>Photography Club hosted Photo Walk – Jun 25</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 CampusClubs. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Revenue Chart
+    new Chart(document.getElementById("eventChart"), {
+      type: 'bar',
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+        datasets: [{
+          label: "Events",
+          backgroundColor: "#00b4d8",
+          data: [12, 13, 8, 9, 11, 6, 9]
+        }]
+      }
+    });
+
+    // Engagement Chart
+    new Chart(document.getElementById("engagementChart"), {
+      type: 'line',
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+        datasets: [{
+          label: "Students",
+          borderColor: "#0077b6",
+          fill: false,
+          data: [45, 50, 75, 70, 85, 90, 100]
+        }]
+      }
+    });
+  </script>
+</body>
+</html>
